@@ -22,7 +22,7 @@ const Container = styled.div`
   text-align: center;
 `;
 
-export default function App() {
+export const App = () => {
   const [count, setCount] = useState(0);
 
   return (
@@ -45,5 +45,5 @@ export default function App() {
       </Container>
     </div>
   );
-}
+};
 
