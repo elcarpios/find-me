@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from 'assets/logo.svg';
 import styled, { css } from 'styled-components';
+import 'styles/App.css';
 
 const Button = styled.button`
   background: transparent;
@@ -14,15 +14,15 @@ const Button = styled.button`
   ${(props) =>
     props.primary &&
     css`
+      color: ${props.theme.colors.primary};
       background: palevioletred;
-      color: white;
     `}
 `;
 const Container = styled.div`
   text-align: center;
 `;
 
-function App() {
+export const App = () => {
   const [count, setCount] = useState(0);
 
   return (
@@ -45,6 +45,7 @@ function App() {
       </Container>
     </div>
   );
-}
+};
 
-export default App;
+export default { App };
+
