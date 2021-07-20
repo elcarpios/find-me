@@ -1,3 +1,5 @@
 export const theme = {
-  primary: 'Alberto'
+  colors: {
+    primary: 'white'
+  }
 };

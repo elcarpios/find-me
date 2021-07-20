@@ -14,15 +14,15 @@ const Button = styled.button`
   ${(props) =>
     props.primary &&
     css`
+      color: ${props.theme.colors.primary};
       background: palevioletred;
-      color: white;
     `}
 `;
 const Container = styled.div`
   text-align: center;
 `;
 
-function App() {
+export default function App() {
   const [count, setCount] = useState(0);
 
   return (
@@ -47,4 +47,3 @@ function App() {
   );
 }
 
-export default App;
