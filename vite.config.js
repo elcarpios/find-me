@@ -12,7 +12,7 @@ export default defineConfig({
       'styles': resolve(__dirname, 'src/styles/'),
       'components': resolve(__dirname, 'src/components/'),
       'pages': resolve(__dirname, 'src/pages/'),
-      'actions': resolve(__dirname, 'src/actions/'),
+      'constants': resolve(__dirname, 'src/constants/'),
     }
   }
 });

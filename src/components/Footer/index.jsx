@@ -1,8 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledFooter = styled.footer`
+  text-align: center;
+`;
 
 const Footer = () => {
   return (
-    <footer>This is the footer</footer>
+    <StyledFooter>
+      <h5>
+        Findme <span>by Alberto & Carpio</span>
+      </h5>
+    </StyledFooter>
   );
 };
 

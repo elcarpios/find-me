@@ -6,6 +6,7 @@ import Header from 'components/Header';
 import Loader from 'components/Loader';
 import Footer from 'components/Footer';
 
+import { ROUTES } from 'constants/routes';
 import 'styles/App.css';
 
 const StyledApp = styled.div`
@@ -26,19 +27,19 @@ const PageNotFound = React.lazy(() => import('pages/PageNotFound'));
 const App = () => {
   return (
     <StyledApp>
-      <Header />
-      <StyledMain>
-        <Suspense fallback={<Loader />}>
-          <Router>
+      <Router>
+        <Header />
+        <StyledMain>
+          <Suspense fallback={<Loader />}>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/plan" component={Plan} />
+              <Route exact path={ROUTES.home} component={Home} />
+              <Route exact path={ROUTES.plan} component={Plan} />
               <Route path="*" component={PageNotFound} />
             </Switch>
-          </Router>
-        </Suspense>
-      </StyledMain>
-      <Footer />
+          </Suspense>
+        </StyledMain>
+        <Footer />
+      </Router>
     </StyledApp>
   );
 };
