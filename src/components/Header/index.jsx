@@ -13,7 +13,7 @@ const Header = () => {
     <StyledHeader>
       <Link to={ROUTES.home}>
         <h3>
-          findme 🏠
+        🏠 findme
         </h3>
       </Link>
     </StyledHeader>

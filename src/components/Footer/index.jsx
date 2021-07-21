@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <StyledFooter>
       <h5>
-        Findme <span>by Alberto & Carpio</span>
+        by Alberto & Carpio
       </h5>
     </StyledFooter>
   );
