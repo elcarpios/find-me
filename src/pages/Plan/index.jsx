@@ -2,28 +2,41 @@ import React, { useRef, useEffect, useState } from 'react';
 import Litepicker from 'litepicker';
 
 const Plan = () => {
+  const [days, setDays] = useState([]);
+  const [daysSelected, setDaysSelected] = useState(null);
   const [isSingleDay, setIsSingleDay] = useState(false);
-  const days = useRef(null);
+  const [picker, setPicker] = useState(null);
+
+  const startingDay = useRef(null);
+  const endingDay = useRef(null);
+
 
   useEffect(() => {
-    debugger;
-    const picker = new Litepicker({
-      element: days.current,
+    const pickerInstance = new Litepicker({
+      element: startingDay.current,
+      elementEnd: endingDay.current,
       singleMode: isSingleDay,
       startDate: new Date(),
       allowRepick: false,
       format: 'DD/MM/YYYY',
       lang: 'es-ES',
       tooltipText: {
-        one: 'da',
+        one: 'dia',
         other: 'dias'
       },
+      setup: picker => {
+        picker.on('selected', (startDay, endDay) => {
+          setDaysSelected({ startDay, endDay});
+        });
+      }
     });
 
-    picker.clearSelection();
+    pickerInstance.clearSelection();
+    setPicker(pickerInstance);
 
     return () => {
-      picker.destroy();
+      pickerInstance.destroy();
+      setPicker(null);
     };
   }, [isSingleDay]);
 
@@ -35,10 +48,23 @@ const Plan = () => {
           Is this a single day event? <input type="checkbox" onChange={event => setIsSingleDay(event.target.checked)}/>
         </label>
         <br /> <br />
-        <label>
-          Choose the date: <input type="text" ref={days} readOnly></input>
-        </label>
+          Choose the day(s): <input type="text" ref={startingDay} readOnly></input>
+          { !isSingleDay && <input type="text" ref={endingDay} readOnly></input> }
+        <br />
+        { daysSelected && 
+          <button type="button" onClick={event => {
+            event.preventDefault();
+            setDays(days => days.concat(daysSelected));
+            picker.clearSelection();
+            setDaysSelected(null);
+          }}>
+          Add
+        </button>
+        }
       </form>
+      <ul>
+        { days.map((day, index) => <li key={index}>{new Date(day.startDay.dateInstance).toDateString()}{day.endDay ? ` - ${new Date(day.endDay.dateInstance).toDateString()}` : ''}</li>) }
+      </ul>
     </div>
   );
 };
