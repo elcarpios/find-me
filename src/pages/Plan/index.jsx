@@ -43,7 +43,6 @@ const Plan = () => {
     <StyledContainer>
       <StyledTitles>
         <h1>Which days?</h1>
-        <h3>My available days:</h3>
       </StyledTitles>
       <StyledList>
         { days.map(day => <StyledListElementPill counter={day.counter} key={day.counter}>{parseDateToLocale(day.startDay)}{day.endDay ? ` - ${parseDateToLocale(day.endDay)}` : ''}</StyledListElementPill>) }
