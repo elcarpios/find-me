@@ -6,6 +6,7 @@ import { ROUTES } from 'constants/routes';
 
 const StyledHeader = styled.header`
   text-align: center;
+  flex-shrink: 0;
 `;
 
 const Header = () => {

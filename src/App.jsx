@@ -14,10 +14,12 @@ const StyledApp = styled.div`
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  flex-wrap: nowrap;
 `;
 
 const StyledMain = styled.main`
   flex-grow: 1;
+  overflow: auto;
 `;
 
 const Home = React.lazy(() => import('pages/Home'));

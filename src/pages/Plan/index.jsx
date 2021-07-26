@@ -1,23 +1,24 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Litepicker from 'litepicker';
 
+import { StyledCalendarPlaceholder, StyledContainer, StyledList, StyledTitles, StyledListElementPill } from './styles';
+
+const parseDateToLocale = date => date.toLocaleString('es-ES', { weekday: 'short', month: 'long', day: 'numeric' });
+
 const Plan = () => {
   const [days, setDays] = useState([]);
-  const [daysSelected, setDaysSelected] = useState(null);
-  const [isSingleDay, setIsSingleDay] = useState(false);
-  const [picker, setPicker] = useState(null);
-
-  const startingDay = useRef(null);
-  const endingDay = useRef(null);
-
+  const calendarRef = useRef(null);
 
   useEffect(() => {
+    let counter = 0;
     const pickerInstance = new Litepicker({
-      element: startingDay.current,
-      elementEnd: endingDay.current,
-      singleMode: isSingleDay,
+      element: calendarRef.current,
+      singleMode: false,
       startDate: new Date(),
-      allowRepick: false,
+      allowRepick: true,
+      inlineMode: true,
+      resetButton: false,
+      autoApply: false,
       format: 'DD/MM/YYYY',
       lang: 'es-ES',
       tooltipText: {
@@ -26,46 +27,29 @@ const Plan = () => {
       },
       setup: picker => {
         picker.on('selected', (startDay, endDay) => {
-          setDaysSelected({ startDay, endDay});
+          setDays(days => [{ startDay, endDay, counter}].concat(days));
+          picker.clearSelection();
+          counter++;
         });
       }
     });
 
     pickerInstance.clearSelection();
-    setPicker(pickerInstance);
 
-    return () => {
-      pickerInstance.destroy();
-      setPicker(null);
-    };
-  }, [isSingleDay]);
+    return pickerInstance.destroy;
+  }, []);
 
   return (
-    <div>
-      <h3>Welcome to the planning zone ⚠️</h3>
-      <form>
-        <label>
-          Is this a single day event? <input type="checkbox" onChange={event => setIsSingleDay(event.target.checked)}/>
-        </label>
-        <br /> <br />
-          Choose the day(s): <input type="text" ref={startingDay} readOnly></input>
-          { !isSingleDay && <input type="text" ref={endingDay} readOnly></input> }
-        <br />
-        { daysSelected && 
-          <button type="button" onClick={event => {
-            event.preventDefault();
-            setDays(days => days.concat(daysSelected));
-            picker.clearSelection();
-            setDaysSelected(null);
-          }}>
-          Add
-        </button>
-        }
-      </form>
-      <ul>
-        { days.map((day, index) => <li key={index}>{new Date(day.startDay.dateInstance).toDateString()}{day.endDay ? ` - ${new Date(day.endDay.dateInstance).toDateString()}` : ''}</li>) }
-      </ul>
-    </div>
+    <StyledContainer>
+      <StyledTitles>
+        <h1>Which days?</h1>
+        <h3>My available days:</h3>
+      </StyledTitles>
+      <StyledList>
+        { days.map(day => <StyledListElementPill counter={day.counter} key={day.counter}>{parseDateToLocale(day.startDay)}{day.endDay ? ` - ${parseDateToLocale(day.endDay)}` : ''}</StyledListElementPill>) }
+      </StyledList>
+      <StyledCalendarPlaceholder ref={calendarRef}></StyledCalendarPlaceholder>
+    </StyledContainer>
   );
 };
 
