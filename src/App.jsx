@@ -10,7 +10,7 @@ import { ROUTES } from 'constants/routes';
 import 'styles/App.css';
 
 const Home = React.lazy(() => import('pages/Home'));
-const Plan = React.lazy(() => import('pages/Plan'));
+const Planner = React.lazy(() => import('pages/Planner'));
 const PageNotFound = React.lazy(() => import('pages/PageNotFound'));
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
       <Suspense fallback={<DefaultLayout><Loader /></DefaultLayout>}>
         <Switch>
           <RouteWrapper exact path={ROUTES.home} component={Home} />
-          <RouteWrapper exact path={ROUTES.plan} component={Plan} layout={Overlay}/>
+          <RouteWrapper exact path={ROUTES.planner} component={Planner} layout={Overlay}/>
           <RouteWrapper path={ROUTES.all} component={PageNotFound} />
         </Switch>
       </Suspense>

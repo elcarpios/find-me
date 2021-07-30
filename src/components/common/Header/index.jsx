@@ -26,7 +26,7 @@ const Header = () => {
     <StyledHeader>
       <Link to={ROUTES.home}>
         <StyledPill>
-          findMe.travel
+          findme
         </StyledPill>
       </Link>
     </StyledHeader>

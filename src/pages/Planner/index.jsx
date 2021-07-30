@@ -29,7 +29,7 @@ const Plan = () => {
       },
       buttonText: {
         apply: 'Add',
-        cancel: 'Remove'
+        cancel: 'Clear'
       },
       setup: picker => {
         picker.on('selected', (startDay, endDay) => {
@@ -42,7 +42,7 @@ const Plan = () => {
 
     pickerInstance.clearSelection();
 
-    return pickerInstance.destroy;
+    return () => pickerInstance.destroy();
   }, []);
 
   return (
