@@ -38,7 +38,6 @@ export const StyledListElementPill = styled.li`
   position: relative;
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 4px;
   color: ${props => props.theme.colors.primary};
   background-color: white;
   text-transform: capitalize;
@@ -59,6 +58,8 @@ export const StyledCalendarPlaceholder = styled.div`
   --litepicker-button-apply-color-bg: ${props => props.theme.colors.primary};
   --litepicker-button-next-month-color: ${props => props.theme.colors.primary};
   --litepicker-button-prev-month-color: ${props => props.theme.colors.primary};
+
+  color: black;
 
   .container__footer { 
     margin: 15px 0;
