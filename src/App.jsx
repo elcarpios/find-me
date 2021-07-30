@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import RouteWrapper from 'components/common/RouteWrapper';
 
 import Loader from 'components/common/Loader';
+import DefaultLayout from 'layouts/Default';
 import Overlay from 'layouts/overlay';
 
 import { ROUTES } from 'constants/routes';
@@ -15,7 +16,7 @@ const PageNotFound = React.lazy(() => import('pages/PageNotFound'));
 const App = () => {
   return (
     <Router>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<DefaultLayout><Loader /></DefaultLayout>}>
         <Switch>
           <RouteWrapper exact path={ROUTES.home} component={Home} />
           <RouteWrapper exact path={ROUTES.plan} component={Plan} layout={Overlay}/>
