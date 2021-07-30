@@ -7,6 +7,7 @@ const StyledContainer = styled.div`
   align-items:center;
   flex-direction: column;
   justify-content: center;
+  color: white;
 `;
 
 const StyledLoader = styled.div`
@@ -36,23 +37,23 @@ const StyledLoader = styled.div`
   }
 
   div:nth-child(5n + 1) {
-    background-color: black;
+    background-color: white;
   }
   div:nth-child(5n + 2) {
     animation-delay: calc(0.1s);
-    background-color: black;
+    background-color: white;
   }
   div:nth-child(5n + 3) {
     animation-delay: calc(0.2s);
-    background-color: black;
+    background-color: white;
   }
   div:nth-child(5n + 4) {
     animation-delay: calc(0.2s);
-    background-color: black;
+    background-color: white;
   }
   div:nth-child(5n + 5) {
     animation-delay: calc(0.4s);
-    background-color: black;
+    background-color: white;
   }
 `;
 

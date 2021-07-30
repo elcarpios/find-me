@@ -1,5 +1,9 @@
 export const theme = {
   colors: {
-    primary: '#4DC0B5'
+    primary: '#00AA9B',
+    secondary: '#FFF'
+  },
+  margin: {
+    pageLayout: '15px'
   }
 };

@@ -1,7 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Litepicker from 'litepicker';
 
-import { StyledCalendarPlaceholder, StyledContainer, StyledList, StyledTitles, StyledListElementPill } from './styles';
+import { ROUTES } from 'constants/routes';
+import { StyledButton, StyledCalendarPlaceholder, StyledContainer, StyledList, StyledTitles, StyledListElementPill } from './styles';
 
 const parseDateToLocale = date => date.toLocaleString('es-ES', { weekday: 'short', month: 'long', day: 'numeric' });
 
@@ -20,14 +22,18 @@ const Plan = () => {
       resetButton: false,
       autoApply: false,
       format: 'DD/MM/YYYY',
-      lang: 'es-ES',
+      lang: 'en-EN',
       tooltipText: {
-        one: 'dia',
-        other: 'dias'
+        one: 'day',
+        other: 'days'
+      },
+      buttonText: {
+        apply: 'Add',
+        cancel: 'Remove'
       },
       setup: picker => {
         picker.on('selected', (startDay, endDay) => {
-          setDays(days => [{ startDay, endDay, counter}].concat(days));
+          setDays(days => days.concat({ startDay, endDay, counter }));
           picker.clearSelection();
           counter++;
         });
@@ -43,10 +49,24 @@ const Plan = () => {
     <StyledContainer>
       <StyledTitles>
         <h1>Which days?</h1>
+        <StyledButton type="button">
+          <Link to={ROUTES.home}>Back</Link>
+        </StyledButton>
       </StyledTitles>
       <StyledList>
-        { days.map(day => <StyledListElementPill counter={day.counter} key={day.counter}>{parseDateToLocale(day.startDay)}{day.endDay ? ` - ${parseDateToLocale(day.endDay)}` : ''}</StyledListElementPill>) }
+        { days.map(day => 
+          <StyledListElementPill counter={day.counter} key={day.counter}>
+            <strong>{parseDateToLocale(day.startDay)}{day.endDay ? ` - ${parseDateToLocale(day.endDay)}` : ''}</strong>
+            <span onClick={
+              () => setDays(days => days.filter(innerDay => day.counter !== innerDay.counter))
+            }>❌</span>
+          </StyledListElementPill>) }
       </StyledList>
+      <StyledButton disabled={!days.length}>
+      {
+        days.length > 0 ? <Link to={ROUTES.home}>Continue</Link> : 'Add some days'
+      }
+      </StyledButton>
       <StyledCalendarPlaceholder ref={calendarRef}></StyledCalendarPlaceholder>
     </StyledContainer>
   );
