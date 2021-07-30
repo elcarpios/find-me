@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import RouteWrapper from 'components/common/RouteWrapper';
 
 import Loader from 'components/common/Loader';
-import DefaultLayout from 'layouts/Default';
+import DefaultLayout from 'layouts/default';
 import Overlay from 'layouts/overlay';
 
 import { ROUTES } from 'constants/routes';
