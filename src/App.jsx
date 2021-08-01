@@ -1,46 +1,29 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import styled from 'styled-components';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import RouteWrapper from 'components/common/RouteWrapper';
 
-import Header from 'components/Header';
-import Loader from 'components/Loader';
-import Footer from 'components/Footer';
+import Loader from 'components/common/Loader';
+import DefaultLayout from 'layouts/default';
+import Overlay from 'layouts/overlay';
 
 import { ROUTES } from 'constants/routes';
 import 'styles/App.css';
 
-const StyledApp = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-`;
-
-const StyledMain = styled.main`
-  flex-grow: 1;
-`;
-
 const Home = React.lazy(() => import('pages/Home'));
-const Plan = React.lazy(() => import('pages/Plan'));
+const Planner = React.lazy(() => import('pages/Planner'));
 const PageNotFound = React.lazy(() => import('pages/PageNotFound'));
 
 const App = () => {
   return (
-    <StyledApp>
-      <Router>
-        <Header />
-        <StyledMain>
-          <Suspense fallback={<Loader />}>
-            <Switch>
-              <Route exact path={ROUTES.home} component={Home} />
-              <Route exact path={ROUTES.plan} component={Plan} />
-              <Route path="*" component={PageNotFound} />
-            </Switch>
-          </Suspense>
-        </StyledMain>
-        <Footer />
-      </Router>
-    </StyledApp>
+    <Router>
+      <Suspense fallback={<DefaultLayout><Loader /></DefaultLayout>}>
+        <Switch>
+          <RouteWrapper exact path={ROUTES.home} component={Home} />
+          <RouteWrapper exact path={ROUTES.planner} component={Planner} layout={Overlay}/>
+          <RouteWrapper path={ROUTES.all} component={PageNotFound} />
+        </Switch>
+      </Suspense>
+    </Router>
   );
 };
 

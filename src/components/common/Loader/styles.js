@@ -1,15 +1,15 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const StyledContainer = styled.div`
+const Container = styled.div`
   display: flex;
   height: 100%;
   align-items:center;
   flex-direction: column;
   justify-content: center;
+  color: white;
 `;
 
-const StyledLoader = styled.div`
+const Loader = styled.div`
   display: flex;
 	align-items: center;
 	height: 37px;
@@ -36,31 +36,24 @@ const StyledLoader = styled.div`
   }
 
   div:nth-child(5n + 1) {
-    background-color: black;
+    background-color: white;
   }
   div:nth-child(5n + 2) {
     animation-delay: calc(0.1s);
-    background-color: black;
+    background-color: white;
   }
   div:nth-child(5n + 3) {
     animation-delay: calc(0.2s);
-    background-color: black;
+    background-color: white;
   }
   div:nth-child(5n + 4) {
     animation-delay: calc(0.2s);
-    background-color: black;
+    background-color: white;
   }
   div:nth-child(5n + 5) {
     animation-delay: calc(0.4s);
-    background-color: black;
+    background-color: white;
   }
 `;
 
-const Loader = () => (
-  <StyledContainer>
-    <h2>We are taking you to the way</h2>
-    <StyledLoader><div></div><div></div><div></div><div></div></StyledLoader>
-  </StyledContainer>
-);
-
-export default React.memo(Loader);
+export { Container, Loader };

@@ -1,4 +1,4 @@
-html, body {
+* {
   margin: 0;
 }
 
@@ -10,4 +10,12 @@ a:link {
 a:visited {
   text-decoration: inherit;
   color: inherit;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
 }
