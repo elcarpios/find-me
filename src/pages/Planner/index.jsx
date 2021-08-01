@@ -2,8 +2,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Litepicker from 'litepicker';
 
+import * as S from './styles';
 import { ROUTES } from 'constants/routes';
-import { StyledButton, StyledCalendarPlaceholder, StyledContainer, StyledList, StyledTitles, StyledListElementPill } from './styles';
 
 const parseDateToLocale = date => date.toLocaleString('es-ES', { weekday: 'short', month: 'long', day: 'numeric' });
 
@@ -46,29 +46,29 @@ const Plan = () => {
   }, []);
 
   return (
-    <StyledContainer>
-      <StyledTitles>
+    <S.Container>
+      <S.Title>
         <h1>Which days?</h1>
-        <StyledButton type="button">
+        <S.Button type="button">
           <Link to={ROUTES.home}>Back</Link>
-        </StyledButton>
-      </StyledTitles>
-      <StyledList>
+        </S.Button>
+      </S.Title>
+      <S.List>
         { days.map(day => 
-          <StyledListElementPill counter={day.counter} key={day.counter}>
+          <S.ListElementPill counter={day.counter} key={day.counter}>
             <strong>{parseDateToLocale(day.startDay)}{day.endDay ? ` - ${parseDateToLocale(day.endDay)}` : ''}</strong>
             <span onClick={
               () => setDays(days => days.filter(innerDay => day.counter !== innerDay.counter))
             }>❌</span>
-          </StyledListElementPill>) }
-      </StyledList>
-      <StyledButton disabled={!days.length}>
+          </S.ListElementPill>) }
+      </S.List>
+      <S.Button disabled={!days.length}>
       {
         days.length > 0 ? <Link to={ROUTES.home}>Continue</Link> : 'Add some days'
       }
-      </StyledButton>
-      <StyledCalendarPlaceholder ref={calendarRef}></StyledCalendarPlaceholder>
-    </StyledContainer>
+      </S.Button>
+      <S.CalendarPlaceholder ref={calendarRef}></S.CalendarPlaceholder>
+    </S.Container>
   );
 };
 

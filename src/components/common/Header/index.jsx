@@ -1,35 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
+import * as S from './styles';
 import { ROUTES } from 'constants/routes';
-
-const StyledHeader = styled.header`
-  text-align: center;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 90px;
-`;
-
-const StyledPill = styled.h3`
-  color: white;
-  border: 1px solid white;
-  display: inline-block;
-  padding: 5px 25px;
-  border-radius: 4px;
-`;
 
 const Header = () => {
   return (
-    <StyledHeader>
+    <S.Header>
       <Link to={ROUTES.home}>
-        <StyledPill>
+        <S.H3>
           findme
-        </StyledPill>
+        </S.H3>
       </Link>
-    </StyledHeader>
+    </S.Header>
   );
 };
 

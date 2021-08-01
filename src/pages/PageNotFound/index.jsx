@@ -1,16 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
+import * as S from './styles';
 import { ROUTES } from 'constants/routes';
 
-const StyledContainer = styled.div`
-  text-align: center;
-`;
 
 const PageNotFound = () => {
   return (
-    <StyledContainer>
+    <S.Container>
       <h1>Sorry bro, parece que te has perdido</h1>
       <Link to={ROUTES.home}>Clica aquí para volver a un lugar seguro</Link>
       <br /><br />
@@ -20,7 +17,7 @@ const PageNotFound = () => {
       <p>
         <a href="https://giphy.com/gifs/computer-windows-blue-screen-KlrMS4vyq5KSY">via GIPHY</a>
       </p>
-    </StyledContainer>
+    </S.Container>
   );
 };
 

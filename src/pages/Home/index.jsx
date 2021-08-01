@@ -1,10 +1,7 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-      
       <div className="App">
         <h1>Hello World</h1>
       </div>

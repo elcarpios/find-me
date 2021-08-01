@@ -1,27 +1,27 @@
 import styled from 'styled-components';
 
-export const StyledContainer = styled.div`
+const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
   color: white;
 `;
 
-export const StyledTitles = styled.div`
+const Title = styled.div`
   margin: 35px 25px 20px 20px;
   display: flex;
   justify-content: space-between;
 `;
 
 
-export const StyledList = styled.ul`
+const List = styled.ul`
   height: 38%;
   text-align: center;
   overflow: auto;
   margin: 15px;
 `;
 
-export const StyledButton = styled.button`
+const Button = styled.button`
   color: white;
   background-color: transparent;
   border: ${props => props.disabled ? '0' : '1px solid white'};
@@ -33,7 +33,7 @@ export const StyledButton = styled.button`
   margin-bottom: 5px;
 `;
 
-export const StyledListElementPill = styled.li`
+const ListElementPill = styled.li`
   display: block;
   position: relative;
   padding: 10px;
@@ -49,7 +49,7 @@ export const StyledListElementPill = styled.li`
   }
 `;
 
-export const StyledCalendarPlaceholder = styled.div`
+const CalendarPlaceholder = styled.div`
   --litepicker-month-width: 100%; 
   --litepicker-container-months-color-bg: transparent;
   --litepicker-container-months-box-shadow-color: transparent;
@@ -89,3 +89,5 @@ export const StyledCalendarPlaceholder = styled.div`
     }
   }
 `;
+
+export { Container, Title, List, Button, ListElementPill, CalendarPlaceholder };
