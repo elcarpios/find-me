@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Pill } from 'styles/components';
+
 const HEIGHT = '90px';
 
 const Header = styled.header`
@@ -10,12 +12,4 @@ const Header = styled.header`
   min-height: ${HEIGHT};
 `;
 
-const H3 = styled.h3`
-  display: inline-block;
-  color: ${props => props.theme.colors.secondary};
-  border: 1px solid ${props => props.theme.colors.secondary};
-  padding: 5px 25px;
-  border-radius: 4px;
-`;
-
-export { Header, H3 };
+export { Header, Pill };

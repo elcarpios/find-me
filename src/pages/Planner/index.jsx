@@ -16,9 +16,9 @@ const Planner = () => {
   return (
     <>
     <Switch>
-      <Redirect exact from={ROUTES.planner.home} to={`${ROUTES.planner.type}/${id}`} />
-      <Route exact path={`${ROUTES.planner.type}/:id`} component={Type} />
-      <Route exact path={`${ROUTES.planner.when}/:id`} component={When} />
+      <Redirect exact from={ROUTES.planner.home} to={ROUTES.planner.type} />
+      <Route exact path={ROUTES.planner.type} component={Type} />
+      <Route exact path={ROUTES.planner.when} component={When} />
     </Switch>
     </>
   );

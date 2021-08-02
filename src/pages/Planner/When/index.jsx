@@ -7,15 +7,16 @@ import { ROUTES } from 'constants/routes';
 
 const parseDateToLocale = date => date.toLocaleString('es-ES', { weekday: 'short', month: 'long', day: 'numeric' });
 
-const When = () => {
+const When = ({ location }) => {
   const [days, setDays] = useState([]);
   const calendarRef = useRef(null);
+  const singleMode = location.state?.singleMode;
 
   useEffect(() => {
     let counter = 0;
     const pickerInstance = new Litepicker({
       element: calendarRef.current,
-      singleMode: false,
+      singleMode: singleMode,
       startDate: new Date(),
       allowRepick: true,
       inlineMode: true,
@@ -43,15 +44,13 @@ const When = () => {
     pickerInstance.clearSelection();
 
     return () => pickerInstance.destroy();
-  }, []);
+  }, [singleMode]);
 
   return (
     <S.Container>
       <S.Title>
         <h1>Which days?</h1>
-        <S.Button type="button">
-          <Link to={ROUTES.home}>Back</Link>
-        </S.Button>
+        <S.Pill as={Link} to={ROUTES.planner.type}>Back</S.Pill>
       </S.Title>
       <S.List>
         { days.map(day => 
@@ -62,11 +61,9 @@ const When = () => {
             }>❌</span>
           </S.ListElementPill>) }
       </S.List>
-      <S.Button disabled={!days.length}>
       {
-        days.length > 0 ? <Link to={ROUTES.home}>Continue</Link> : 'Add some days'
+        days.length > 0 ? <S.Pill as={Link} to={ROUTES.home}>Continue</S.Pill> : <S.Pill>Add some days</S.Pill>
       }
-      </S.Button>
       <S.CalendarPlaceholder ref={calendarRef}></S.CalendarPlaceholder>
     </S.Container>
   );

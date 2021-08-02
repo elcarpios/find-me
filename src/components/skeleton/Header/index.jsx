@@ -8,9 +8,9 @@ const Header = () => {
   return (
     <S.Header>
       <Link to={ROUTES.home}>
-        <S.H3>
+        <S.Pill as="h3">
           findme
-        </S.H3>
+        </S.Pill>
       </Link>
     </S.Header>
   );
