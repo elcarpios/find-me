@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import RouteWrapper from 'components/common/RouteWrapper';
+import RouteWrapper from 'components/router/RouteWrapper';
 
-import Loader from 'components/common/Loader';
+import Loader from 'components/router/Loader';
 import DefaultLayout from 'layouts/default';
 import Overlay from 'layouts/overlay';
 
@@ -19,7 +19,7 @@ const App = () => {
       <Suspense fallback={<DefaultLayout><Loader /></DefaultLayout>}>
         <Switch>
           <RouteWrapper exact path={ROUTES.home} component={Home} />
-          <RouteWrapper exact path={ROUTES.planner} component={Planner} layout={Overlay}/>
+          <RouteWrapper path={ROUTES.planner.home} component={Planner} layout={Overlay}/>
           <RouteWrapper path={ROUTES.all} component={PageNotFound} />
         </Switch>
       </Suspense>

@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 
+const HEIGHT = '90px';
+
 const Header = styled.header`
-  text-align: center;
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 90px;
+  flex-shrink: 0;
+  min-height: ${HEIGHT};
 `;
 
 const H3 = styled.h3`
-  color: white;
-  border: 1px solid white;
   display: inline-block;
+  color: ${props => props.theme.colors.secondary};
+  border: 1px solid ${props => props.theme.colors.secondary};
   padding: 5px 25px;
   border-radius: 4px;
 `;
