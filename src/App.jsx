@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import RouteWrapper from 'components/router/RouteWrapper';
 
+import RouteWrapper from 'components/router/RouteWrapper';
 import Loader from 'components/router/Loader';
 import DefaultLayout from 'layouts/default';
 import Overlay from 'layouts/overlay';
