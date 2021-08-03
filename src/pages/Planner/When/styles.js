@@ -1,36 +1,12 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: white;
-`;
-
-const Title = styled.div`
-  margin: 35px 25px 20px 20px;
-  display: flex;
-  justify-content: space-between;
-`;
-
+import { Title, Container, Pill } from 'styles/components';
 
 const List = styled.ul`
   height: 38%;
   text-align: center;
   overflow: auto;
   margin: 15px;
-`;
-
-const Button = styled.button`
-  color: white;
-  background-color: transparent;
-  border: ${props => props.disabled ? '0' : '1px solid white'};
-  border-radius: 4px;
-  padding: 0 20px;
-  min-height: 30px;
-  align-self: center;
-  font-size: 14px;
-  margin-bottom: 5px;
 `;
 
 const ListElementPill = styled.li`
@@ -90,4 +66,4 @@ const CalendarPlaceholder = styled.div`
   }
 `;
 
-export { Container, Title, List, Button, ListElementPill, CalendarPlaceholder };
+export { Container, Title, Pill, List, ListElementPill, CalendarPlaceholder };

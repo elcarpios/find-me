@@ -1,5 +1,10 @@
 export const ROUTES = {
   all: '*',
   home: '/',
-  planner: '/planner'
+  planner: {
+    home: '/planner',
+    type: '/planner/type',
+    when: '/planner/when',
+    where: '/planner/where'
+  }
 };
