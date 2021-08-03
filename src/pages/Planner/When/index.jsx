@@ -62,7 +62,7 @@ const When = ({ location }) => {
           </S.ListElementPill>) }
       </S.List>
       {
-        days.length > 0 ? <S.Pill as={Link} to={ROUTES.home}>Continue</S.Pill> : <S.Pill>Add some days</S.Pill>
+        days.length > 0 ? <S.Pill as={Link} to={ROUTES.planner.where}>Continue</S.Pill> : <S.Pill>Add some days</S.Pill>
       }
       <S.CalendarPlaceholder ref={calendarRef}></S.CalendarPlaceholder>
     </S.Container>

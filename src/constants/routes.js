@@ -4,6 +4,7 @@ export const ROUTES = {
   planner: {
     home: '/planner',
     type: '/planner/type',
-    when: '/planner/when'
+    when: '/planner/when',
+    where: '/planner/where'
   }
 };
