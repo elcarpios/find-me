@@ -26,4 +26,12 @@ const PlacesPill = styled(Pill)`
   margin-bottom: 1rem;
 `;
 
-export { Container, Title, Pill, InputContainer, Input, Button, PlacesContainer, PlacesPill };
+const ButtonsContainer = styled.div`
+  position: fixed;
+  bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
+export { Container, Title, Pill, InputContainer, Input, Button, PlacesContainer, PlacesPill, ButtonsContainer };

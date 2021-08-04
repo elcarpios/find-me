@@ -1,11 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Litepicker from 'litepicker';
+
+import CloseButton from 'components/skeleton/CloseButton';
+import PrimaryButton from 'components/common/buttons/primary';
 
 import * as S from './styles';
 import { ROUTES } from 'constants/routes';
 
-const parseDateToLocale = date => date.toLocaleString('es-ES', { weekday: 'short', month: 'long', day: 'numeric' });
+const parseDateToLocale = date => date.toLocaleString('en-EN', { weekday: 'short', month: 'long', day: 'numeric' });
 
 const When = ({ location }) => {
   const [days, setDays] = useState([]);
@@ -16,12 +18,12 @@ const When = ({ location }) => {
     let counter = 0;
     const pickerInstance = new Litepicker({
       element: calendarRef.current,
-      singleMode: singleMode,
+      singleMode: false,
       startDate: new Date(),
       allowRepick: true,
       inlineMode: true,
       resetButton: false,
-      autoApply: false,
+      autoApply: true,
       format: 'DD/MM/YYYY',
       lang: 'en-EN',
       tooltipText: {
@@ -34,8 +36,11 @@ const When = ({ location }) => {
       },
       setup: picker => {
         picker.on('selected', (startDay, endDay) => {
+          if(startDay.getTime() === endDay.getTime()) {
+            endDay = undefined;
+          }
+
           setDays(days => days.concat({ startDay, endDay, counter }));
-          picker.clearSelection();
           counter++;
         });
       }
@@ -47,25 +52,38 @@ const When = ({ location }) => {
   }, [singleMode]);
 
   return (
-    <S.Container>
-      <S.Title>
-        <h1>Which days?</h1>
-        <S.Pill as={Link} to={ROUTES.planner.type}>Back</S.Pill>
-      </S.Title>
-      <S.List>
-        { days.map(day => 
-          <S.ListElementPill counter={day.counter} key={day.counter}>
-            <strong>{parseDateToLocale(day.startDay)}{day.endDay ? ` - ${parseDateToLocale(day.endDay)}` : ''}</strong>
-            <span onClick={
-              () => setDays(days => days.filter(innerDay => day.counter !== innerDay.counter))
-            }>❌</span>
-          </S.ListElementPill>) }
-      </S.List>
-      {
-        days.length > 0 ? <S.Pill as={Link} to={ROUTES.planner.where}>Continue</S.Pill> : <S.Pill>Add some days</S.Pill>
-      }
-      <S.CalendarPlaceholder ref={calendarRef}></S.CalendarPlaceholder>
-    </S.Container>
+    <>
+      <S.Container>
+        <S.Title>
+          <h1>Which days?</h1>
+          <CloseButton />
+        </S.Title>
+        <S.List>
+          { days.map(day => 
+            <S.ListElementPill counter={day.counter} key={day.counter}>
+              <strong>{parseDateToLocale(day.startDay)}{day.endDay ? ` - ${parseDateToLocale(day.endDay)}` : ''}</strong>
+              <span onClick={
+                () => setDays(days => days.filter(innerDay => day.counter !== innerDay.counter))
+              }>❌</span>
+            </S.ListElementPill>) }
+        </S.List>
+        <S.CalendarPlaceholder ref={calendarRef}></S.CalendarPlaceholder>
+        <S.ButtonsContainer>
+          <PrimaryButton
+              to={ROUTES.planner.where}
+              disabled={days.length < 1}
+            >
+              Continue
+          </PrimaryButton>
+          <PrimaryButton
+            bgColor="#2196f3"
+            to={ROUTES.planner.name}
+          >
+            Back
+          </PrimaryButton>
+        </S.ButtonsContainer>
+      </S.Container>
+    </>
   );
 };
 

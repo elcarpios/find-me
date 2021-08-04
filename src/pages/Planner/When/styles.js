@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Title, Container, Pill } from 'styles/components';
 
 const List = styled.ul`
-  height: 38%;
+  height: 30vh;
   text-align: center;
   overflow: auto;
   margin: 15px;
@@ -37,20 +37,6 @@ const CalendarPlaceholder = styled.div`
 
   color: black;
 
-  .container__footer { 
-    margin: 15px 0;
-    padding: 12px 10px;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-
-    button[type=button] {
-      padding: 0 1rem;
-      min-height: 2rem;
-      font-weight: bold;
-    }
-  }
-
   .container__months {
     border-radius: 0;
     text-transform: capitalize;
@@ -66,4 +52,14 @@ const CalendarPlaceholder = styled.div`
   }
 `;
 
-export { Container, Title, Pill, List, ListElementPill, CalendarPlaceholder };
+const ButtonsContainer = styled.div`
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  bottom: 2rem;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+`;
+
+export { Container, Title, Pill, List, ListElementPill, CalendarPlaceholder, ButtonsContainer };

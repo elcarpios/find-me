@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import * as S from './styles';
 import { ROUTES } from 'constants/routes';
 
-const Header = () => {
+const Header = ({ title = 'findme'}) => {
   return (
     <S.Header>
       <Link to={ROUTES.home}>
         <S.Pill as="h3">
-          findme
+          { title }
         </S.Pill>
       </Link>
     </S.Header>

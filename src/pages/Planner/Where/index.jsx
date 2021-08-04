@@ -1,8 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+
+import CloseButton from 'components/skeleton/CloseButton';
+import PrimaryButton from 'components/common/buttons/primary';
 
 import * as S from './styles';
 import { ROUTES } from 'constants/routes';
+
 // https://developers.google.com/maps/documentation/places/web-service/search?hl=es_419
 
 const Where = () => {
@@ -21,10 +24,11 @@ const Where = () => {
   }
 
   return (
+    <>
     <S.Container>
       <S.Title>
         <h1>Where</h1>
-        <S.Pill as={Link} to={ROUTES.planner.when}>Back</S.Pill>
+        <CloseButton />
       </S.Title>
       <S.InputContainer>
         <S.Input
@@ -47,6 +51,15 @@ const Where = () => {
       }
       </S.PlacesContainer>
     </S.Container>
+    <S.ButtonsContainer>
+      <PrimaryButton
+        bgColor="#2196f3"
+        to={ROUTES.planner.when}
+      >
+        Back
+      </PrimaryButton>
+    </S.ButtonsContainer>
+  </>
   );
 };
 
