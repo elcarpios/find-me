@@ -3,8 +3,11 @@ export const ROUTES = {
   home: '/',
   planner: {
     home: '/planner',
-    type: '/planner/type',
+    name: '/planner/name',
     when: '/planner/when',
     where: '/planner/where'
+  },
+  myplans: {
+    home: '/myplans'
   }
 };

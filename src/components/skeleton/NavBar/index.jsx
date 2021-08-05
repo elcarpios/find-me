@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import * as S from './styles';
 import { ROUTES } from 'constants/routes';
 
+// TODO: Move the inline SVG away, but do it that they render inline
+
 const NavBar = () => {
   return (
     <S.NavBar>
@@ -19,12 +21,12 @@ const NavBar = () => {
         </svg>
         <div>Planner</div>
       </Link>
-      <a>
+      <Link to={ROUTES.myplans.home}>
       <svg width="26" height="26" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M11.385 28.0604L2.5 25.0488V4.58908L11.115 7.51046L19.9038 2.40314L27.5 5.4909V26.0091L20.0962 22.9988L11.3863 28.0604H11.385ZM5 8.11886V23.2173L10 24.9104V9.80564L5 8.11886ZM17.5 6.72169L12.5 9.62781V24.4887L17.5 21.5826V6.72169ZM20.0962 5.21527L20 5.2737V20.2248L25 22.257V7.20943L20.0962 5.21527Z" fill="#00AA9B"/>
       </svg>
         <div>My Plans</div>
-      </a>
+      </Link>
     </S.NavBar>
   );
 };

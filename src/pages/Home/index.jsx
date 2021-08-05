@@ -1,10 +1,10 @@
 import React from 'react';
 
+import * as S from './styles';
+
 const Home = () => {
   return (
-      <div className="App">
-        <h1>Hello World</h1>
-      </div>
+    <div></div>
   );
 };
 
