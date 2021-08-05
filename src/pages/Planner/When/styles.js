@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Title, Container, Pill, Main } from 'styles/components';
 
 const List = styled.ul`
-  height: calc(80vh - 24rem);
+  height: calc(100% - 250px);
   text-align: center;
   overflow: auto;
   margin: 15px;
