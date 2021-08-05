@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Title, Container, Pill } from 'styles/components';
 
 const List = styled.ul`
-  height: 30vh;
+  height: 25vh;
   text-align: center;
   overflow: auto;
   margin: 15px;
@@ -36,6 +36,8 @@ const CalendarPlaceholder = styled.div`
   --litepicker-button-prev-month-color: ${props => props.theme.colors.primary};
 
   color: black;
+  position: fixed:
+  bottom: 20vh;
 
   .container__months {
     border-radius: 0;
@@ -60,6 +62,7 @@ const ButtonsContainer = styled.div`
   justify-content: center;
   width: 100%;
   align-items: center;
+  height: 15vh;
 `;
 
 export { Container, Title, Pill, List, ListElementPill, CalendarPlaceholder, ButtonsContainer };
