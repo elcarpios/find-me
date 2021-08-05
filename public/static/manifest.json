@@ -4,7 +4,7 @@
   "description": "An amazing place to organize travels",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#00AA9B",
+  "theme_color": "#FFFFFF",
   "orientation": "portrait",
   "background_color": "#00AA9B",
   "icons": [{
