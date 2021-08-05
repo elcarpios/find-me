@@ -27,6 +27,7 @@ const Container = styled.div`
 const Main = styled.main`
   height: 60%;
   text-align: center;
+  overflow: hidden;
 `;
 
 export { Title, Pill, Container, Main };
