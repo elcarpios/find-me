@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Container, Title, Pill } from 'styles/components';
+import { Container, Title, Pill, Main } from 'styles/components';
 
 const List = styled.ul`
   display: flex;
@@ -26,11 +26,12 @@ const Input = styled.input`
 `;
 
 const ButtonsContainer = styled.div`
-  position: fixed;
-  bottom: 3rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
+  align-items: center;
+  margin-bottom: 2rem;
 `;
 
-export { Container, Title, List, Input, Pill, ButtonsContainer };
+export { Container, Title, List, Input, Pill, ButtonsContainer, Main };

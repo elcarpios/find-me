@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { Title, Container, Pill } from 'styles/components';
+import { Title, Container, Pill, Main } from 'styles/components';
 
 const List = styled.ul`
-  height: 25vh;
+  height: calc(100vh - 385px - 20vh);
   text-align: center;
   overflow: auto;
   margin: 15px;
@@ -36,8 +36,7 @@ const CalendarPlaceholder = styled.div`
   --litepicker-button-prev-month-color: ${props => props.theme.colors.primary};
 
   color: black;
-  position: fixed:
-  bottom: 20vh;
+  height: 35vh;
 
   .container__months {
     border-radius: 0;
@@ -56,13 +55,11 @@ const CalendarPlaceholder = styled.div`
 
 const ButtonsContainer = styled.div`
   display: flex;
-  position: fixed;
   flex-direction: column;
-  bottom: 2rem;
   justify-content: center;
   width: 100%;
   align-items: center;
-  height: 15vh;
+  margin-bottom: 2rem;
 `;
 
-export { Container, Title, Pill, List, ListElementPill, CalendarPlaceholder, ButtonsContainer };
+export { Container, Title, Pill, List, ListElementPill, CalendarPlaceholder, Main, ButtonsContainer };

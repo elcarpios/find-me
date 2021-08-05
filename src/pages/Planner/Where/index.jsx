@@ -30,6 +30,7 @@ const Where = () => {
         <h1>Where</h1>
         <CloseButton />
       </S.Title>
+      <S.Main>
       <S.InputContainer>
         <S.Input
           type="text"
@@ -50,8 +51,8 @@ const Where = () => {
         )
       }
       </S.PlacesContainer>
-    </S.Container>
-    <S.ButtonsContainer>
+      </S.Main>
+      <S.ButtonsContainer>
       <PrimaryButton
         bgColor="#2196f3"
         to={ROUTES.planner.when}
@@ -59,6 +60,7 @@ const Where = () => {
         Back
       </PrimaryButton>
     </S.ButtonsContainer>
+    </S.Container>
   </>
   );
 };

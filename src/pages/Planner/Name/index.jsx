@@ -23,7 +23,8 @@ const Name = () => {
         <h1>Choose a cool event name</h1>
         <CloseButton />
       </S.Title>
-      <S.Input
+      <S.Main>
+        <S.Input
           type="text"
           placeholder="Cool event name ✨"  
           ref={inputRef}
@@ -35,6 +36,7 @@ const Name = () => {
           }}
           autoFocus
         ></S.Input>
+      </S.Main>
       <S.ButtonsContainer>
         <PrimaryButton
           to={ROUTES.planner.when}
@@ -43,6 +45,12 @@ const Name = () => {
         >
           Continue
         </PrimaryButton>
+        <PrimaryButton
+        bgColor="#2196f3"
+        to={ROUTES.home}
+      >
+        Back
+      </PrimaryButton>
       </S.ButtonsContainer>
     </S.Container>
   </>

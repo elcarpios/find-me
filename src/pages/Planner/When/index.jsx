@@ -58,16 +58,18 @@ const When = ({ location }) => {
           <h1>Which days?</h1>
           <CloseButton />
         </S.Title>
-        <S.List>
-          { days.map(day => 
-            <S.ListElementPill counter={day.counter} key={day.counter}>
-              <strong>{parseDateToLocale(day.startDay)}{day.endDay ? ` - ${parseDateToLocale(day.endDay)}` : ''}</strong>
-              <span onClick={
-                () => setDays(days => days.filter(innerDay => day.counter !== innerDay.counter))
-              }>❌</span>
-            </S.ListElementPill>) }
-        </S.List>
-        <S.CalendarPlaceholder ref={calendarRef}></S.CalendarPlaceholder>
+        <S.Main>
+          <S.List>
+            { days.map(day => 
+              <S.ListElementPill counter={day.counter} key={day.counter}>
+                <strong>{parseDateToLocale(day.startDay)}{day.endDay ? ` - ${parseDateToLocale(day.endDay)}` : ''}</strong>
+                <span onClick={
+                  () => setDays(days => days.filter(innerDay => day.counter !== innerDay.counter))
+                }>❌</span>
+              </S.ListElementPill>) }
+          </S.List>
+          <S.CalendarPlaceholder ref={calendarRef}></S.CalendarPlaceholder>
+        </S.Main>
         <S.ButtonsContainer>
           <PrimaryButton
               to={ROUTES.planner.where}

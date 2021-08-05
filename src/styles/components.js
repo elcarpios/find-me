@@ -21,6 +21,12 @@ const Container = styled.div`
   flex-direction: column;
   color: white;
   height: 100%;
+  justify-content: space-between;
 `;
 
-export { Title, Pill, Container };
+const Main = styled.main`
+  height: 60vh;
+  text-align: center;
+`;
+
+export { Title, Pill, Container, Main };
