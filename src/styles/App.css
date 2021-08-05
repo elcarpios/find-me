@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+html, body, #root {
+  height: 100%;
+}
+
 a {
   text-decoration: inherit;
   color: inherit;
