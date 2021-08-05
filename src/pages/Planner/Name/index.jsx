@@ -42,11 +42,10 @@ const Name = () => {
               buttonRef.current.click();
             }
           }}
-          autoFocus
         ></S.Input>
         <PrimaryButton
           border={false}
-          bgColor="#FE4A49"
+          bgColor="#2196f3"
           disabled={!COOL_NAMES.length}
           onClickEvent={() => {
             const index = Math.floor(Math.random() * (COOL_NAMES.length - 1));
@@ -68,7 +67,7 @@ const Name = () => {
           Continue
         </PrimaryButton>
         <PrimaryButton
-        bgColor="#2196f3"
+        bgColor="#FE4A49"
         to={ROUTES.home}
       >
         Back

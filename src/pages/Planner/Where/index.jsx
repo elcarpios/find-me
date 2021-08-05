@@ -10,7 +10,7 @@ import { ROUTES } from 'constants/routes';
 
 const Where = () => {
   const inputRef = useRef(null);
-  const [places, setPlaces] = useState(['Japón', 'Barcelona']);
+  const [places, setPlaces] = useState(['Barcelona']);
 
   function addHandler(event) {
     const inputValue = inputRef.current?.value;
@@ -31,7 +31,6 @@ const Where = () => {
         <CloseButton />
       </S.Title>
       <S.Main>
-      <S.InputContainer>
         <S.Input
           type="text"
           placeholder="Write here your places"
@@ -39,22 +38,26 @@ const Where = () => {
           onKeyPress={event => { if(event.code === 'Enter') addHandler(event); }}
           autoFocus
         ></S.Input>
-        <S.Button
-          type="button"
-          onClick={addHandler}  
-        >Add 🔥 </S.Button>
-      </S.InputContainer>
-      <S.PlacesContainer>
+        <PrimaryButton
+            bgColor="#2196f3"
+            onClickEvent={addHandler}
+          >
+            Add
+          </PrimaryButton>
+        <S.PlacesContainer>
       { places.length > 0 &&
         places.map((place, index) => 
-          <S.PlacesPill key={index}>{place}</S.PlacesPill>
+          <S.PlacesPill key={index}>
+            <S.PillImage src="https://picsum.photos/300/150" />
+            <S.PillTitle>{place}</S.PillTitle>
+          </S.PlacesPill>
         )
       }
       </S.PlacesContainer>
       </S.Main>
       <S.ButtonsContainer>
       <PrimaryButton
-        bgColor="#2196f3"
+        bgColor="#FE4A49"
         to={ROUTES.planner.when}
       >
         Back

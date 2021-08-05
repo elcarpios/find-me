@@ -13,8 +13,8 @@ const Input = styled.input`
   color: ${props => props.theme.colors.secondary};
   background-color: transparent;
   align-self: center;
-  width: 82vw;
-  margin-top: 5rem;
+  width: 82%;
+  margin-top: 3rem;
   border: 0;
   border-bottom: 2px solid ${props => props.theme.colors.secondary};
   font-size: 1.5rem;

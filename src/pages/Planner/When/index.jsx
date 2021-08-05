@@ -78,7 +78,7 @@ const When = ({ location }) => {
               Continue
           </PrimaryButton>
           <PrimaryButton
-            bgColor="#2196f3"
+            bgColor="#FE4A49"
             to={ROUTES.planner.name}
           >
             Back
