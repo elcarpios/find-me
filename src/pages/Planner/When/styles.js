@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Title, Container, Pill, Main } from 'styles/components';
 
 const List = styled.ul`
-  height: calc(100vh - 385px - 20vh);
+  height: calc(80vh - 385px);
   text-align: center;
   overflow: auto;
   margin: 15px;
@@ -36,7 +36,7 @@ const CalendarPlaceholder = styled.div`
   --litepicker-button-prev-month-color: ${props => props.theme.colors.primary};
 
   color: black;
-  height: 35vh;
+  height: 35%;
 
   .container__months {
     border-radius: 0;

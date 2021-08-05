@@ -25,7 +25,7 @@ const Container = styled.div`
 `;
 
 const Main = styled.main`
-  height: 60vh;
+  height: 60%;
   text-align: center;
 `;
 
