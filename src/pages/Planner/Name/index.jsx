@@ -42,7 +42,6 @@ const Name = () => {
               buttonRef.current.click();
             }
           }}
-          autoFocus
         ></S.Input>
         <PrimaryButton
           border={false}
