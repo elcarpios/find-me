@@ -10,21 +10,27 @@ const List = styled.ul`
 `;
 
 const ListElementPill = styled.li`
-  display: block;
-  position: relative;
+  display: flex;
   padding: 10px;
   margin-bottom: 10px;
   color: ${props => props.theme.colors.primary};
   background-color: white;
   text-transform: capitalize;
+  border-radius: 4px;
+  justify-content: space-around;
+  align-items: center;
 
-  span {
-    position: absolute;
-    right: 15px;
-    bottom: 6px;
+  strong {
+    flex-grow: 1;
   }
 `;
 
+const RedCross = styled.svg`
+  margin-right: 0.5rem;
+  background-color: #FE4A49;
+  border-radius: 4px;
+`;
+ 
 const CalendarPlaceholder = styled.div`
   --litepicker-month-width: 100%; 
   --litepicker-container-months-color-bg: transparent;
@@ -62,4 +68,4 @@ const ButtonsContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
-export { Container, Title, Pill, List, ListElementPill, CalendarPlaceholder, Main, ButtonsContainer };
+export { Container, Title, Pill, List, ListElementPill, RedCross, CalendarPlaceholder, Main, ButtonsContainer };

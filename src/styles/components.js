@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Title = styled.div`
   display: flex;
-  margin: 2rem;
+  margin: 2rem 1.5rem 1rem 1.5rem;
   justify-content: space-between;
 `;
 

@@ -15,7 +15,6 @@ const When = ({ location }) => {
   const singleMode = location.state?.singleMode;
 
   useEffect(() => {
-    let counter = 0;
     const pickerInstance = new Litepicker({
       element: calendarRef.current,
       singleMode: false,
@@ -40,8 +39,7 @@ const When = ({ location }) => {
             endDay = undefined;
           }
 
-          setDays(days => days.concat({ startDay, endDay, counter }));
-          counter++;
+          setDays(days => days.concat({ startDay, endDay, id: Math.random() }));
         });
       }
     });
@@ -61,11 +59,14 @@ const When = ({ location }) => {
         <S.Main>
           <S.List>
             { days.map(day => 
-              <S.ListElementPill counter={day.counter} key={day.counter}>
+              <S.ListElementPill id={day.id} key={day.id}>
                 <strong>{parseDateToLocale(day.startDay)}{day.endDay ? ` - ${parseDateToLocale(day.endDay)}` : ''}</strong>
-                <span onClick={
-                  () => setDays(days => days.filter(innerDay => day.counter !== innerDay.counter))
-                }>❌</span>
+                <S.RedCross width="24" height="24" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"
+                onClick={
+                  () => setDays(days => days.filter(innerDay => day.id !== innerDay.id))
+                }>
+                  <path d="M24.9192 7.08334L17 15.0025L9.08083 7.08334L7.08333 9.08084L15.0025 17L7.08333 24.9192L9.08083 26.9167L17 18.9975L24.9192 26.9167L26.9167 24.9192L18.9975 17L26.9167 9.08084L24.9192 7.08334Z" fill="white"/>
+              </S.RedCross>
               </S.ListElementPill>) }
           </S.List>
           <strong>You can add multiple values</strong>

@@ -42,8 +42,7 @@ const Name = () => {
           }}
         ></S.Input>
         <PrimaryButton
-          border={false}
-          bgColor="#2196f3"
+          bgColor="#7251b5"
           disabled={!COOL_NAMES.length}
           onClickEvent={() => {
             const index = Math.floor(Math.random() * (COOL_NAMES.length - 1));
@@ -61,6 +60,7 @@ const Name = () => {
           to={ROUTES.planner.when}
           disabled={!inputValue.length}
           ref={buttonRef}
+          bgColor="#2196f3"
         >
           Let&apos;s go
         </PrimaryButton>
