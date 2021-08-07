@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 
 import PrimaryButton from 'components/common/buttons/primary';
-import CloseButton from 'components/skeleton/CloseButton';
 
 import * as S from './styles';
 import { ROUTES } from 'constants/routes';
@@ -28,13 +27,12 @@ const Name = () => {
     <>
     <S.Container>
       <S.Title>
-        <h1>Choose a cool event name</h1>
-        <CloseButton />
+        <h1>Name it</h1>
       </S.Title>
       <S.Main>
         <S.Input
           type="text"
-          placeholder="Cool event name ✨"  
+          placeholder="Amazing plan name"
           ref={inputRef}
           onChange={onKeyHandler}
           onKeyPress={event => { 
@@ -44,8 +42,7 @@ const Name = () => {
           }}
         ></S.Input>
         <PrimaryButton
-          border={false}
-          bgColor="#2196f3"
+          bgColor="#7251b5"
           disabled={!COOL_NAMES.length}
           onClickEvent={() => {
             const index = Math.floor(Math.random() * (COOL_NAMES.length - 1));
@@ -55,7 +52,7 @@ const Name = () => {
             setInputValue(name);
           }}
         >
-          { COOL_NAMES.length ? 'Randomize it' : 'Sorry we need to think more names' }
+          { COOL_NAMES.length ? 'Think for me' : 'Sorry our monkeys were not so original' }
         </PrimaryButton>
       </S.Main>
       <S.ButtonsContainer>
@@ -63,8 +60,9 @@ const Name = () => {
           to={ROUTES.planner.when}
           disabled={!inputValue.length}
           ref={buttonRef}
+          bgColor="#2196f3"
         >
-          Continue
+          Let&apos;s go
         </PrimaryButton>
         <PrimaryButton
         bgColor="#FE4A49"

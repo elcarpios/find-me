@@ -14,14 +14,14 @@ const Input = styled.input`
   background-color: transparent;
   align-self: center;
   width: 82%;
-  margin-top: 3rem;
+  margin-top: 2rem;
   border: 0;
   border-bottom: 2px solid ${props => props.theme.colors.secondary};
   font-size: 1.5rem;
 
   &::placeholder {
     color: white;
-    opacity: 0.5;
+    opacity: 0.6;
   }
 `;
 

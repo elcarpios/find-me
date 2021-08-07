@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Title = styled.div`
   display: flex;
-  margin: 2rem;
+  margin: 2rem 1.5rem 1rem 1.5rem;
   justify-content: space-between;
 `;
 
@@ -21,11 +21,10 @@ const Container = styled.div`
   flex-direction: column;
   color: white;
   height: 100%;
-  justify-content: space-between;
 `;
 
 const Main = styled.main`
-  height: 60%;
+  flex-grow: 1;
   text-align: center;
   overflow: hidden;
 `;
