@@ -5,7 +5,7 @@ import { Title, Container, Pill, Main } from 'styles/components';
 const List = styled.ul`
   height: calc(100% - 250px);
   text-align: center;
-  overflow: auto;
+  overflow: scroll;
   margin: 15px;
 `;
 

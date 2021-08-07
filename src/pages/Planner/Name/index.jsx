@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 
 import PrimaryButton from 'components/common/buttons/primary';
-import CloseButton from 'components/skeleton/CloseButton';
 
 import * as S from './styles';
 import { ROUTES } from 'constants/routes';
@@ -28,13 +27,12 @@ const Name = () => {
     <>
     <S.Container>
       <S.Title>
-        <h1>Choose a cool event name</h1>
-        <CloseButton />
+        <h1>Name it</h1>
       </S.Title>
       <S.Main>
         <S.Input
           type="text"
-          placeholder="Cool event name ✨"  
+          placeholder="Amazing plan name"
           ref={inputRef}
           onChange={onKeyHandler}
           onKeyPress={event => { 
@@ -55,7 +53,7 @@ const Name = () => {
             setInputValue(name);
           }}
         >
-          { COOL_NAMES.length ? 'Randomize it' : 'Sorry we need to think more names' }
+          { COOL_NAMES.length ? 'Think for me' : 'Sorry our monkeys were not so original' }
         </PrimaryButton>
       </S.Main>
       <S.ButtonsContainer>
@@ -64,7 +62,7 @@ const Name = () => {
           disabled={!inputValue.length}
           ref={buttonRef}
         >
-          Continue
+          Let&apos;s go
         </PrimaryButton>
         <PrimaryButton
         bgColor="#FE4A49"

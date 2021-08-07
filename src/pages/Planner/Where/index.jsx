@@ -33,7 +33,7 @@ const Where = () => {
       <S.Main>
         <S.Input
           type="text"
-          placeholder="Write here your places"
+          placeholder="Place I want to go"
           ref={inputRef}
           onKeyPress={event => { if(event.code === 'Enter') addHandler(event); }}
           autoFocus

@@ -24,7 +24,7 @@ const PlacesContainer = styled.div`
   flex-direction: column;
   margin: 1.5rem 1rem;
   height: 75%;
-  overflow: auto;
+  overflow: scroll;
 `;
 
 const PlacesPill = styled(Pill)`

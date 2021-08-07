@@ -55,7 +55,7 @@ const When = ({ location }) => {
     <>
       <S.Container>
         <S.Title>
-          <h1>Which days?</h1>
+          <h1>When</h1>
           <CloseButton />
         </S.Title>
         <S.Main>
@@ -68,6 +68,7 @@ const When = ({ location }) => {
                 }>❌</span>
               </S.ListElementPill>) }
           </S.List>
+          <strong>You can add multiple values</strong>
           <S.CalendarPlaceholder ref={calendarRef}></S.CalendarPlaceholder>
         </S.Main>
         <S.ButtonsContainer>
@@ -75,7 +76,7 @@ const When = ({ location }) => {
               to={ROUTES.planner.where}
               disabled={days.length < 1}
             >
-              Continue
+              Move forward
           </PrimaryButton>
           <PrimaryButton
             bgColor="#FE4A49"
